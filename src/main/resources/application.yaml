@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: pages
+          uri: https://dashaun-dev.github.io
+          predicates:
+            - Path=/**
+          filters:
+            - RewritePath=/dummyfilter/?(?<segment>.*), /$\{segment}
