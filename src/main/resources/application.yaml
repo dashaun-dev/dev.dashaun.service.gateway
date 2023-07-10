@@ -4,12 +4,19 @@ spring:
   cloud:
     gateway:
       routes:
+        - id: jsensor
+          uri: http://jsensor-service.dashaun-dev.knative.dashaun.cloud
+          predicates:
+            - Path=/jsensor/**
+          filters:
+            - RewritePath=/jsensor/?(?<segment>.*), /$\{segment}
+            - TokenRelay=
         - id: pages
           uri: https://dashaun-dev.github.io
           predicates:
             - Path=/**
           filters:
-            - TokenRelay=
+            - RewritePath=/dummyfilter/?(?<segment>.*), /$\{segment}
   security:
     oauth2:
       client:
