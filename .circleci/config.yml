@@ -22,7 +22,7 @@ jobs:
           docker-username: DOCKER_LOGIN
           docker-password: DOCKERHUB_PASSWORD
       - docker/push:
-          image: dashaun/dev.dashaun.service.gateway
+          image: dashaun/$CIRCLE_PROJECT_REPONAME
           tag: $CIRCLE_TAG-aarch_64
 
 workflows:
