@@ -4,13 +4,6 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: jsensor
-          uri: http://jsensor-service.dashaun-dev.svc.cluster.local:80
-          predicates:
-            - Path=/jsensor/**
-          filters:
-            - RewritePath=/jsensor/?(?<segment>.*), /$\{segment}
-            - TokenRelay=
         - id: pages
           uri: https://dashaun-dev.github.io
           predicates:
