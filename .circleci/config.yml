@@ -14,10 +14,10 @@ jobs:
       - sdkman/setup-sdkman
       - sdkman/sdkman-install:
           candidate: java
-          version: 17.0.7-graalce
+          version: 21.0.1-graalce
       - run:
           name: "mvnw -Pnative spring-boot:build-image"
-          command: "./mvnw -Pnative spring-boot:build-image -DskipTests"
+          command: "./mvnw -Pnative spring-boot:build-image"
       - docker/check:
           docker-username: DOCKER_LOGIN
           docker-password: DOCKERHUB_PASSWORD
