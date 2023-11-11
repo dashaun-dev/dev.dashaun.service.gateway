@@ -14,9 +14,3 @@ spring:
           uri: https://dashaun-dev.github.io
           predicates:
             - Path=/
-          filters:
-            - RedirectTo=302, https://dashaun.dev/blog/
-        - id: blog
-          uri: https://dashaun-dev.github.io
-          predicates:
-            - Path=/blog/**
