@@ -11,11 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/setup-java@v2
+      - uses: renatoathaydes/setup-java-sdkman@v2.x
         with:
-          distribution: 'liberica' # See 'Supported distributions' for available options
-          java-version: '21'
-      - name: Checkout master
+          java-version: '17.0.9-graalce' # The SDKMAN! JDK version to use.
+      - name: Checkout main
         uses: actions/checkout@v3
         with:
           submodules: true
