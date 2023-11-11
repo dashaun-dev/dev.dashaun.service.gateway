@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: renatoathaydes/setup-java-sdkman@v2.x
+      - uses: renatoathaydes/setup-java-sdkman@v2.1.1
         with:
           java-version: '17.0.9-graalce' # The SDKMAN! JDK version to use.
       - name: Checkout main
