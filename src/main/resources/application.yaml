@@ -4,24 +4,13 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: pages
+        - id: root
           uri: https://dashaun-dev.github.io
           predicates:
-            - Path=/**
+            - Path=/
           filters:
-            - RewritePath=/dummyfilter/?(?<segment>.*), /$\{segment}
-  security:
-    oauth2:
-      client:
-        provider:
-          spring:
-            issuer-uri: https://auth.dashaun.dev
-        registration:
-          spring:
-            authorization-grant-type: authorization_code
-            client-authentication-method: client_secret_basic
-            client-id: client
-            client-secret: secret
-            provider: spring
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-            scope: user.read,openid
+            - RedirectTo=302, https://dashaun.dev/blog/
+        - id: blog
+          uri: https://dashaun-dev.github.io
+          predicates:
+            - Path=/blog/**
