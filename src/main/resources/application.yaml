@@ -14,3 +14,5 @@ spring:
           uri: https://dashaun-dev.github.io
           predicates:
             - Path=/**
+          filters:
+            - RewritePath=//?(?<segment>.*), /$\{segment}
