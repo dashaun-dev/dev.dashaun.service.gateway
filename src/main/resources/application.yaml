@@ -13,4 +13,4 @@ spring:
         - id: root
           uri: https://dashaun-dev.github.io
           predicates:
-            - Path=/
+            - Path=/**
