@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  docker: circleci/docker@2.2.0
+  docker: circleci/docker@2.4.0
   sdkman: joshdholtz/sdkman@0.2.0
 
 jobs:
@@ -14,9 +14,9 @@ jobs:
       - sdkman/setup-sdkman
       - sdkman/sdkman-install:
           candidate: java
-          version: 17.0.9-graalce
+          version: 21.0.2-librca
       - run:
-          name: "mvnw -Pnative spring-boot:build-image"
+          name: "bootBuildImage"
           command: "./mvnw -Pnative spring-boot:build-image"
       - docker/check:
           docker-username: DOCKER_LOGIN
@@ -30,7 +30,7 @@ workflows:
     jobs:
       - arm64-native:
           context:
-            - dashaun-dockerhub 
+            - dashaun-dockerhub
           filters:
             tags:
               only: /^v.*/
